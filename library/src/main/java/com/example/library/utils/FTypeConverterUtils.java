@@ -4,7 +4,7 @@ package com.example.library.utils;
  * Created by bjhl on 16/6/24.
  * 类型转换
  */
-public class TypeConverterUtils {
+public class FTypeConverterUtils {
 
     /**
      * Object-------int
