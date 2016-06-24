@@ -11,6 +11,12 @@ public class PersonCenterActivty extends BaseActivity {
 
     public static final String INTENT_IN_ID = "intent-in-id";
 
+    /**
+     * 跳转封装
+     * @param context
+     * @param id
+     * @return
+     */
     public static Intent createIntent(Context context, long id) {
         Intent i = new Intent(context, PersonCenterActivty.class);
         i.putExtra(INTENT_IN_ID, id);
