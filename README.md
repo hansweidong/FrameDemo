@@ -4,10 +4,11 @@ android项目框架
 
 ##1.实体生成
 Gson、FastJson<br/>
-注：* 在Android Studio中可采用GsonFomat插件快速生成Model<br/>
-    * 使用 fastJSON 后,App 四处起火,主要表现为: <br/>
-      * 加了符号 Annotation 的实体属性,一使用就崩溃。 <br/>
-      * 当有泛型属性时,一使用就崩溃。<br/>
+注：
+   + 在Android Studio中可采用GsonFomat插件快速生成Model
+   + 使用 fastJSON 后,App 四处起火,主要表现为: 
+      + 加了符号 Annotation 的实体属性,一使用就崩溃。 
+      + 当有泛型属性时,一使用就崩溃。
     在调试的时候没事,可是每次打签名混淆包,就会出现上述问题。<br/>
     解决办法：<br/>
     混淆文件缺了以下两行代码导致的:<br/>
