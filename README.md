@@ -15,5 +15,6 @@ Gson、FastJson
     -keepattributes Signature // 避免混淆泛型
     -keepattributes *Annotation* // 不混淆注解
     ```
-##2.每次发布新版本都要写 mapping.txt。每发布一个版本，如果用户遇到一个bug，同时提交了一个混淆过的堆栈跟踪。 通过保留mapping.txt文件，来确定你可以调试的问题。
+##2.Android混淆
+每次发布新版本都要写 mapping.txt。每发布一个版本，如果用户遇到一个bug，同时提交了一个混淆过的堆栈跟踪。 通过保留mapping.txt文件，来确定你可以调试的问题。
 [Android混淆相关](http://www.jianshu.com/p/6a9247829b92)
