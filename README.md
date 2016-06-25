@@ -24,3 +24,4 @@ Gson、FastJson<br/>
 [Google开源的FlexboxLayout](https://zhuanlan.zhihu.com/p/20908345)
 ##4.[Android 开发最佳实践](https://github.com/futurice/android-best-practices)
 ##5.[Android开发：Translucent System Bar 的最佳实践](http://www.jianshu.com/p/0acc12c29c1b)
+##6.[Android Studio advanced configuration](http://liukun.engineer/2016/04/10/Android-Studio-advanced-configuration/)
