@@ -1,4 +1,4 @@
-package com.example.library.base.log;
+package com.example.library.base;
 
 import com.orhanobut.logger.Logger;
 

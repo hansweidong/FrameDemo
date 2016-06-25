@@ -10,12 +10,58 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+
+        //解决Dex超出方法数的限制问题 参考： http://www.jianshu.com/p/7453df22a522
+        multiDexEnabled true
     }
-    buildTypes {
+    /**
+     * 密码 在做版本release时你app的 build.gradle你需要定义 signingConfigs.
+     * 此时你应该避免以下内容： 不要做这个 . 这会出现在版本控制中。
+     * 而是，建立一个不加入版本控制系统的gradle.properties文件。
+        signingConfigs {
+            releaseConfig {
+                storeFile file("../bjhl.keystore")
+                storePassword 'bjhl0516'
+                keyAlias 'bjhl'
+                keyPassword 'bjhl0516'
+            }
+
+            debugConfig {
+                storeFile file("../bjhl.keystore")
+                storePassword 'bjhl0516'
+                keyAlias 'bjhl'
+                keyPassword 'bjhl0516'
+            }
+        }
+     */
+    signingConfigs {
         release {
+            try {
+                storeFile file("myapp.keystore")
+                storePassword KEYSTORE_PASSWORD
+                keyAlias "thekey"
+                keyPassword KEY_PASSWORD
+            }
+            catch (ex) {
+                throw new InvalidUserDataException("You should define KEYSTORE_PASSWORD and KEY_PASSWORD in gradle.properties.")
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
             minifyEnabled false
+        }
+        release {
+            shrinkResources true
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    dexOptions {
+        preDexLibraries = false
+        javaMaxHeapSize "4g"
     }
 }
 
@@ -23,6 +69,8 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
+
+    compile 'com.android.support:multidex:1.0.1'
 
     compile(project(':library')) {
         transitive = true
