@@ -20,3 +20,4 @@ Gson、FastJson<br/>
 [Android混淆相关](http://www.jianshu.com/p/6a9247829b92)
 ##3.Google开源的FlexboxLayout
 [Google开源的FlexboxLayout](https://zhuanlan.zhihu.com/p/20908345)
+##4.[Android 开发最佳实践](https://github.com/futurice/android-best-practices)
