@@ -30,3 +30,6 @@ Gson、FastJson<br/>
 
 ##5.提升小工具
 + [LeakCanary](https://github.com/square/leakcanary)是一个开源的在debug版本中检测内存泄漏的java库。
+
+##6.常用控件
+[列表右滑删除](https://github.com/lijiazhicool/AndroidSwipeLayout)
