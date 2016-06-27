@@ -30,6 +30,9 @@ Gson、FastJson<br/>
 
 ##5.提升小工具
 + [LeakCanary](https://github.com/square/leakcanary)是一个开源的在debug版本中检测内存泄漏的java库。
++ 当程序发生bug时请用户调出隐藏页面，上传本地db文件（File dbFile = getDatabasePath（path）），给用户发一个链接，让用户点击即可。
+ [Android实现通过浏览器点击链接打开本地应用（APP）并拿到浏览器传递的数据](http://blog.csdn.net/jiangwei0910410003/article/details/23940445)
+[ Android入门：隐式Intent](http://blog.csdn.net/xiazdong/article/details/7764865)
 
 ##6.常用控件
 [列表右滑删除](https://github.com/lijiazhicool/AndroidSwipeLayout)
