@@ -27,5 +27,6 @@ Gson、FastJson<br/>
 + [Android6.0等新功能兼容包使用](http://www.csdn.net/article/2015-10-05/2825847/1)
 + [Android开发：Translucent System Bar 的最佳实践](http://www.jianshu.com/p/0acc12c29c1b)
 + [Android Studio advanced configuration](http://liukun.engineer/2016/04/10/Android-Studio-advanced-configuration/)
+
 ##5.提升小工具
 + [LeakCanary](https://github.com/square/leakcanary)是一个开源的在debug版本中检测内存泄漏的java库。
