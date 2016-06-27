@@ -3,7 +3,11 @@ package com.example.library.activty;
 import android.app.Activity;
 import android.os.Bundle;
 
+import org.greenrobot.eventbus.EventBus;
+
 public abstract class BaseActivity extends Activity {
+
+    private boolean isEventBus = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,4 +40,20 @@ public abstract class BaseActivity extends Activity {
      * 初始化本地数据、加载网络数据
      */
     protected abstract void loadData();
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (isEventBus){
+            EventBus.getDefault().register(this);
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (isEventBus){
+            EventBus.getDefault().unregister(this);
+        }
+    }
 }
