@@ -40,3 +40,4 @@ Gson、FastJson<br/>
 + [基于JavaCV库实现Android端的音视频录制，支持断点录制、片段回删、定点聚焦、闪光灯、摄像头切换和视频水印等。
 ](https://github.com/wzystal/MediaRecorder)
 + [android视频录制，模仿微视，支持按下录制、抬起暂停。进度条断点显示](https://github.com/qdrzwd/VideoRecorder)
++ [Android Form EditText](https://github.com/lijiazhicool/android-edittext-validator)可进行电话、邮箱等验证
