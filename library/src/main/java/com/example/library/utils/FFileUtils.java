@@ -835,7 +835,7 @@ public class FFileUtils {
      *         <ul>
      *         <li>if {@link FFileUtils#getFolderName(String)} return null, return false</li>
      *         <li>if target directory already exists, return true</li>
-     *         <li>return {@link java.io.File#}</li>
+     *         <li>return {@link File#}</li>
      *         </ul>
      */
     public static boolean makeDirs(String filePath) {

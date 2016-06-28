@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 
+import com.example.library.log.FLogcat;
 import com.example.library.R;
-import com.example.library.base.FLog;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -29,7 +29,7 @@ public class FToolUtils {
             intent.setData(Uri.parse("tel:" + phoneNum));
             context.startActivity(intent);
         } catch (Exception e) {
-            FLog.e("call phone error, e:" + e.getLocalizedMessage());
+            FLogcat.e("call phone error, e:" + e.getLocalizedMessage());
             FTips.show(context, context.getString(R.string.tx_no_call_app_installed));
         }
     }
@@ -49,7 +49,7 @@ public class FToolUtils {
             }
             context.startActivity(intent);
         } catch (Exception e) {
-            FLog.e("send sms error, e:" + e.getLocalizedMessage());
+            FLogcat.e("send sms error, e:" + e.getLocalizedMessage());
             FTips.show(context, context.getString(R.string.tx_no_sms_app_installed));
         }
     }
@@ -66,7 +66,7 @@ public class FToolUtils {
             intent.setData(Uri.parse(url));
             context.startActivity(intent);
         } catch (Exception e) {
-            FLog.e("open browser error, e:" + e.getLocalizedMessage());
+            FLogcat.e("open browser error, e:" + e.getLocalizedMessage());
             FTips.show(context, context.getString(R.string.tx_no_browser_app_installed));
         }
     }

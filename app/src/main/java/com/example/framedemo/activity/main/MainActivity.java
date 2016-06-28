@@ -2,14 +2,16 @@ package com.example.framedemo.activity.main;
 
 import android.os.Bundle;
 
+import com.example.library.activty.FBaseActivity;
 import com.example.framedemo.R;
-import com.example.library.activty.BaseActivity;
 
-public class MainActivity extends BaseActivity {
+
+public class MainActivity extends FBaseActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        isEventBus = true;
     }
 
     @Override

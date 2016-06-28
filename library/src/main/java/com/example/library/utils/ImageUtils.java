@@ -421,7 +421,7 @@ public class ImageUtils {
      * meta data with DATE_ADDED and DATE_TAKEN. This fixes a common problem where media
      * that is inserted manually gets saved at the end of the gallery (because date is not populated).
      *
-     * @see android.provider.MediaStore.Images.Media#insertImage(ContentResolver, Bitmap, String, String)
+     * @see MediaStore.Images.Media#insertImage(ContentResolver, Bitmap, String, String)
      */
     public static String insertImage(ContentResolver cr, Bitmap source, String title, String description) {
 
@@ -477,7 +477,7 @@ public class ImageUtils {
      * populate the android.provider.MediaStore.Images.Media#insertImage with all the correct
      * meta data. The StoreThumbnail method is private so it must be duplicated here.
      *
-     * @see android.provider.MediaStore.Images.Media (StoreThumbnail private method)
+     * @see MediaStore.Images.Media (StoreThumbnail private method)
      */
     private static Bitmap storeThumbnail(ContentResolver cr, Bitmap source, long id, float width, float height, int kind) {
 

@@ -2,7 +2,7 @@ package com.example.library.utils;
 
 import android.text.TextUtils;
 
-import com.example.library.base.FLog;
+import com.example.library.log.FLogcat;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -35,7 +35,7 @@ public class FStringUtils {
             utf8tweet = unicodeOutlierMatcher.replaceAll("");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
-            FLog.e("remove emoji e:" + e.getLocalizedMessage());
+            FLogcat.e("remove emoji e:" + e.getLocalizedMessage());
         }
         return utf8tweet;
     }
