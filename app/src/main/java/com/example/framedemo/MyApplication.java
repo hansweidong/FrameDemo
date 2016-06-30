@@ -7,7 +7,7 @@ import android.support.multidex.MultiDexApplication;
 
 import com.example.library.manager.FDeployManager;
 import com.example.library.manager.TXManager;
-import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.stetho.Stetho;
 
 import java.util.List;
 
@@ -53,7 +53,6 @@ public class MyApplication extends MultiDexApplication {
             // 初始化全局类
             AppConfig.init(this);
             DeviceInfo.init(this);
-            Fresco.initialize(getInstance());
             // AppContext.initialize(this);
 
 
@@ -64,6 +63,12 @@ public class MyApplication extends MultiDexApplication {
             CrashHandler crashHandler = CrashHandler.getInstance();
             crashHandler.init(this);
             Thread.setDefaultUncaughtExceptionHandler(crashHandler);
+
+            Stetho.initialize(Stetho
+                    .newInitializerBuilder(this)
+                    .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
+                    .enableWebKitInspector(
+                            Stetho.defaultInspectorModulesProvider(this)).build());
         }
     }
 
@@ -83,10 +88,10 @@ public class MyApplication extends MultiDexApplication {
     private FDeployManager.EnvironmentType getVersionType() {
         int version = FDeployManager.EnvironmentType.TYPE_ONLINE.getValue();
         // 这个在gradle里配置的，有限使用那个配置
-//        if (!BuildConfig.IS_ONLINE) {
-//            version =
-//                mSharedPreferences.getInt(PREF_VERSION_TYPE, FDeployManager.EnvironmentType.TYPE_TEST.getValue());
-//        }
+        if (!BuildConfig.IS_ONLINE) {
+            version =
+                mSharedPreferences.getInt(PREF_VERSION_TYPE, FDeployManager.EnvironmentType.TYPE_TEST.getValue());
+        }
         return FDeployManager.EnvironmentType.valueOf(version);
     }
 
@@ -100,4 +105,6 @@ public class MyApplication extends MultiDexApplication {
         super.onTerminate();
         TXManager.release(this);
     }
+
+
 }

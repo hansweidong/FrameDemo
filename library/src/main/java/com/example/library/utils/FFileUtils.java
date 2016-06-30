@@ -958,11 +958,11 @@ public class FFileUtils {
      * @return
      * @throws IOException
      */
-    public File getFile(Context context,String filename) throws IOException {
+    public static File getFile(Context context,String filename) throws IOException {
         return getFile(context, filename, true);
     }
 
-    public File getFile(Context context,String filename, boolean createFileWhileNonExists) throws IOException {
+    public static File getFile(Context context,String filename, boolean createFileWhileNonExists) throws IOException {
         String filePath = context.getExternalFilesDir(null).getAbsolutePath() + File.separator + filename;
         File file = new File(filePath);
         if (createFileWhileNonExists) {

@@ -18,22 +18,13 @@ android {
      * 密码 在做版本release时你app的 build.gradle你需要定义 signingConfigs.
      * 此时你应该避免以下内容： 不要做这个 . 这会出现在版本控制中。
      * 而是，建立一个不加入版本控制系统的gradle.properties文件。
-     signingConfigs {
-     releaseConfig {
-     storeFile file("../bjhl.keystore")
+     signingConfigs {releaseConfig {storeFile file("../bjhl.keystore")
      storePassword 'bjhl0516'
      keyAlias 'bjhl'
-     keyPassword 'bjhl0516'
-     }
-
-     debugConfig {
-     storeFile file("../bjhl.keystore")
+     keyPassword 'bjhl0516'}debugConfig {storeFile file("../bjhl.keystore")
      storePassword 'bjhl0516'
      keyAlias 'bjhl'
-     keyPassword 'bjhl0516'
-     }
-     }
-     */
+     keyPassword 'bjhl0516'}}*/
     signingConfigs {
         release {
             try {
@@ -51,23 +42,60 @@ android {
     buildTypes {
         debug {
             minifyEnabled false
+            zipAlignEnabled true
+            debuggable true
+            shrinkResources false
+            buildConfigField "boolean", "IS_ONLINE", "false"
         }
         release {
-            shrinkResources true
             minifyEnabled true
+            zipAlignEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-
             buildConfigField "boolean", "IS_ONLINE", "true"
         }
     }
+
+    //这个是解决lint报错的代码
     lintOptions {
         abortOnError false
         disable 'InvalidPackage'
         checkReleaseBuilds false
     }
+
+    //重复dex问题，可以加这个
     dexOptions {
+        //DexIndexOverflowException: Cannot merge new index 65572 into a non-jumbo instruction!w
         preDexLibraries = false
         javaMaxHeapSize "4g"
+    }
+
+    // 打包配置
+    packagingOptions {// 排除一些文件
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
+    defaultConfig {
+        manifestPlaceholders = [umeng_key: "56c3ee0de0f55a977c0026af"]
+    }
+    //渠道
+    productFlavors {
+        //0
+        _test {
+            //55fbfd1f67e58ef8e90034d9
+            manifestPlaceholders = [umeng_channel: "innertest", umeng_key: "56c3ee0de0f55a977c0026af"]
+        }
+        /*
+        //0
+        GenShuiXue {
+            manifestPlaceholders = [umeng_channel: "GenShuiXue"]
+        }
+        */
     }
 }
 
@@ -77,6 +105,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.4.0'
 
     compile 'com.android.support:multidex:1.0.1'
-
+//    compile 'com.jakewharton:butterknife:8.1.0'
     compile project(':library')
 }

@@ -5,9 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.framedemo.R;
-import com.example.library.activty.FBaseActivity;
+import com.example.library.activty.BaseActivity;
 
-public class PersonCenterActivty extends FBaseActivity {
+public class PersonCenterActivty extends BaseActivity {
 
     public static final String INTENT_IN_ID = "intent-in-id";
 

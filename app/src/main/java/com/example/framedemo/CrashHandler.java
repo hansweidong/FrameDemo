@@ -104,7 +104,8 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
      * @return
      */
     public File getCrashFileDir() {
-        File fileDir = FFileUtils.createDirIfNotExists(mContext.getExternalFilesDir(null).getAbsolutePath() + CRASH_PAHT);
+        File fileDir =
+            FFileUtils.createDirIfNotExists(mContext.getExternalFilesDir(null).getAbsolutePath() + CRASH_PAHT);
         return fileDir;
     }
 
@@ -136,11 +137,10 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         }
 
         String time = FTimeUtils.formatTime3(System.currentTimeMillis());
-        String fileName = "crash_" + time;
+        String fileName = "crash_" + time+".txt";
 
         try {
-            File file =
-                FFileUtils.createDirIfNotExists(mContext.getExternalFilesDir(null).getAbsolutePath() + fileName);
+            File file = FFileUtils.getFile(mContext,CRASH_PAHT + fileName);
             PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(file)));
 
             // debug
