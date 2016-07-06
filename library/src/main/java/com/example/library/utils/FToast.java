@@ -9,9 +9,9 @@ import android.widget.Toast;
  *
  * 弹出提示对话框
  */
-public class FTips {
+public class FToast {
 
-    private FTips() {
+    private FToast() {
 
     }
 

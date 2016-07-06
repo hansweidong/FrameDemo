@@ -30,7 +30,7 @@ public class FToolUtils {
             context.startActivity(intent);
         } catch (Exception e) {
             FLogcat.e("call phone error, e:" + e.getLocalizedMessage());
-            FTips.show(context, context.getString(R.string.tx_no_call_app_installed));
+            FToast.show(context, context.getString(R.string.tx_no_call_app_installed));
         }
     }
 
@@ -50,7 +50,7 @@ public class FToolUtils {
             context.startActivity(intent);
         } catch (Exception e) {
             FLogcat.e("send sms error, e:" + e.getLocalizedMessage());
-            FTips.show(context, context.getString(R.string.tx_no_sms_app_installed));
+            FToast.show(context, context.getString(R.string.tx_no_sms_app_installed));
         }
     }
 
@@ -67,7 +67,7 @@ public class FToolUtils {
             context.startActivity(intent);
         } catch (Exception e) {
             FLogcat.e("open browser error, e:" + e.getLocalizedMessage());
-            FTips.show(context, context.getString(R.string.tx_no_browser_app_installed));
+            FToast.show(context, context.getString(R.string.tx_no_browser_app_installed));
         }
     }
     /**

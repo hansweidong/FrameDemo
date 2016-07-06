@@ -109,15 +109,15 @@
     <orderEntry type="library" exported="" name="common-image-crop-1.0.0" level="project" />
     <orderEntry type="library" exported="" name="imagepipeline-0.8.1" level="project" />
     <orderEntry type="library" exported="" name="rxjava-1.1.5" level="project" />
-    <orderEntry type="library" exported="" name="okhttp-3.2.0" level="project" />
     <orderEntry type="library" exported="" name="support-vector-drawable-23.4.0" level="project" />
     <orderEntry type="library" exported="" name="rxandroid-1.2.0" level="project" />
+    <orderEntry type="library" exported="" name="okio-1.8.0" level="project" />
+    <orderEntry type="library" exported="" name="okhttp-3.3.1" level="project" />
     <orderEntry type="library" exported="" name="gson-2.6.2" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-v7-23.2.0" level="project" />
     <orderEntry type="library" exported="" name="stetho-js-rhino-1.3.1" level="project" />
     <orderEntry type="library" exported="" name="common-image-1.0.0" level="project" />
     <orderEntry type="library" exported="" name="common-cache-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="okio-1.6.0" level="project" />
     <orderEntry type="library" exported="" name="jsr305-2.0.1" level="project" />
     <orderEntry type="library" exported="" name="fbcore-0.8.1" level="project" />
     <orderEntry type="library" exported="" name="support-v4-23.4.0" level="project" />
@@ -127,6 +127,7 @@
     <orderEntry type="library" exported="" name="reactivenetwork-0.2.0" level="project" />
     <orderEntry type="library" exported="" name="stetho-okhttp3-1.3.1" level="project" />
     <orderEntry type="library" exported="" name="android-gif-drawable-1.1.11" level="project" />
+    <orderEntry type="library" exported="" name="okhttputils-2.6.2" level="project" />
     <orderEntry type="library" exported="" name="common-utils-1.0.0" level="project" />
     <orderEntry type="library" exported="" name="greendao-2.1.0" level="project" />
     <orderEntry type="library" exported="" name="zxing-core-3.2.1" level="project" />

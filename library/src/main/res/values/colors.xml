@@ -1,0 +1,7 @@
+<resources>
+
+    <color name="f_transparent">#00000000</color>
+
+    <color name="selectable_item_background_pressed_color">#e0a1c5df</color>
+    <color name="dialog_listpressedcolor">#f2f2f2</color>
+</resources>

@@ -1,12 +1,21 @@
 package com.example.library.http.retrofit;
 
 import com.example.library.base.FException;
+import com.example.library.constant.FApiConstants;
 import com.example.library.manager.FDeployManager;
+import com.example.library.model.BaseModel;
 import com.example.library.model.RoomListModel;
 import com.example.library.utils.FJsonUtil;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 
+import java.io.File;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
+import okhttp3.RequestBody;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -24,17 +33,15 @@ public class FApiManager {
 
     public static final String TAG = FApiManager.class.getSimpleName();
 
-    public static final String BASE_URL = "http://api.baijiacloud.com/appapi/";
-
     private FApi mFApi;
 
     private FApiManager() {
         Retrofit.Builder build =
             new Retrofit.Builder().addConverterFactory(GsonConverterFactory.create(FJsonUtil.gson))
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())// add rxjava
                 // .setErrorHandler(new LPErrorHandler())
-                .baseUrl(BASE_URL);
-        if (FDeployManager.getEnvironmentType() == FDeployManager.EnvironmentType.TYPE_TEST) {
+                .baseUrl(FApiConstants.HOSTS[FDeployManager.getmEnvironmentType().getValue()]);
+        if (FDeployManager.getmEnvironmentType() == FDeployManager.EnvironmentType.TYPE_TEST) {
             OkHttpClient client = new OkHttpClient.Builder().addNetworkInterceptor(new StethoInterceptor()).build();
             build.client(client);
         }
@@ -86,5 +93,52 @@ public class FApiManager {
                 return result.data;
             }
         }).subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+    }
+
+    /**
+     * 下载文件 进度条
+     * 
+     * @param callback
+     */
+    public void requestDownloaddemo(FileCallback callback) {
+        mFApi.requestDownloaddemo().enqueue(callback);
+    }
+
+    /**
+     * 上传文件  test
+     * @param fileKey 前后端约定
+     * @param imagePath
+     * @return
+     */
+    public Observable<BaseModel> requestUpload(Map<String, String> kv, String fileKey, String imagePath, FRequestProgressListener listener) {
+        File imgFile = new File(imagePath);
+        RequestBody requestBody = FProgressRequestBody.create(MediaType.parse("image/*"), imgFile, listener);
+
+        Map<String, RequestBody> params = new HashMap<>();
+        params.put(fileKey+"\"; filename=\""+imgFile.getName()+"",requestBody);
+//        params.put("Filedata\"; filename=\""+imgFile.getName()+"",progressRequestBody);
+
+        if (kv != null && !kv.isEmpty()) {
+            Iterator<String> iterator = kv.keySet().iterator();
+            while (iterator.hasNext()) {
+                String key = iterator.next();
+                String value = kv.get(key);
+                RequestBody temp = RequestBody.create(MediaType.parse("text/plain"), value);
+                params.put(key, temp);
+            }
+        }
+        return mFApi.requestUpload(params)
+                .map(new Func1<FResponse<BaseModel>, BaseModel>() {
+                    @Override
+                    public BaseModel call(FResponse<BaseModel> result) {
+                        RuntimeException exception = analyticsResponse(result);
+                        if (exception != null) {
+                            throw exception;
+                        }
+                        return result.data;
+                    }
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
     }
 }

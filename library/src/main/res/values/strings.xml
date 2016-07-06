@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Library</string>
 
-    <string name="org_init_task_input_emoji_illegitimate">不支持输入Emoji表情符号 </string>
+    <string name="org_init_task_input_emoji_illegitimate">不支持输入Emoji表情符号</string>
 </resources>

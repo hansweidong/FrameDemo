@@ -8,6 +8,7 @@ import android.os.Environment;
 import android.os.Looper;
 import android.widget.Toast;
 
+import com.example.library.manager.FDeployManager;
 import com.example.library.utils.FFileUtils;
 import com.example.library.utils.FTimeUtils;
 
@@ -79,7 +80,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         }
         final String msg = ex.getLocalizedMessage();
         // 使用Toast来显示异常信息
-        if (AppConfig.isDebug | AppConfig.isBeta) {
+        if (FDeployManager.isTest | FDeployManager.isBeta) {
             new Thread() {
                 @Override
                 public void run() {
@@ -144,7 +145,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
             PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(file)));
 
             // debug
-            if (AppConfig.isDebug | AppConfig.isBeta) {
+            if (FDeployManager.isTest | FDeployManager.isBeta) {
                 pw.println("[---    Test Test Test !!!   ---]");
             }
 

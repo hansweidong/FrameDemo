@@ -46,7 +46,7 @@ public class FRejectEmojiWatcher implements TextWatcher {
             CharSequence input = s.subSequence(start, start + count);
             if (input.length() >= 2) {    // 表情的长度不小于2
                 if (containsEmoji(input.toString())) {
-                    FTips.show(mContext, mContext.getString(R.string.org_init_task_input_emoji_illegitimate));
+                    FToast.show(mContext, mContext.getString(R.string.org_init_task_input_emoji_illegitimate));
                     isResetText = true;
                     mEditText.setText(mBeforeText);
                     mEditText.invalidate();

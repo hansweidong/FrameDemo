@@ -24,6 +24,11 @@ public class FDeployManager {
 
     private static final String TAG = FDeployManager.class.getSimpleName();
 
+    public static boolean isTest = true;
+    public static boolean isBeta = false;
+    public static boolean isOnline = false;
+
+
     // 环境改变观察者
     private static final ConcurrentLinkedQueue<IEnvironmentChangedListener> mListeners = new ConcurrentLinkedQueue<>();
 
@@ -36,7 +41,7 @@ public class FDeployManager {
     private static String imei = "";// DeviceInfo.IMEI
     private static String mac = "";// DeviceInfo.MAC
     private static String appType = "10"; // 与后端定义的 appType
-    private static EnvironmentType environmentType = EnvironmentType.TYPE_TEST;
+    private static EnvironmentType mEnvironmentType = EnvironmentType.TYPE_TEST;
 
     public static boolean init(Context context, EnvironmentType type) {
         // 获取设备信息
@@ -78,7 +83,7 @@ public class FDeployManager {
      * @param type 环境
      */
     public static void updateDeployType(EnvironmentType type) {
-        FDeployManager.environmentType = type;
+        FDeployManager.mEnvironmentType = type;
         switch (type) {
             case TYPE_TEST: {
                 FLogFile.setLogLevel(FLogFile.LOG_LEVEL_VERBOSE, true);
@@ -134,8 +139,8 @@ public class FDeployManager {
         return mac;
     }
 
-    public static EnvironmentType getEnvironmentType() {
-        return environmentType;
+    public static EnvironmentType getmEnvironmentType() {
+        return mEnvironmentType;
     }
 
     public static String getAppType() {

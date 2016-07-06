@@ -1,0 +1,8 @@
+<resources>
+    <string name="dialog_ok">确定</string>
+    <string name="dialog_cancel">取消</string>
+    <string name="dialog_yes">是</string>
+    <string name="dialog_no">否</string>
+
+    <string name="dialog_input_number_count_limit">你输入的字数已经超过了限制</string>
+</resources>
