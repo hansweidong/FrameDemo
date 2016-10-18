@@ -46,3 +46,4 @@ Gson、FastJson<br/>
 + [Android Form EditText](https://github.com/lijiazhicool/android-edittext-validator)可进行电话、邮箱等验证
 + [通用对话框dialogplus](https://github.com/orhanobut/dialogplus)
 + [BottomDialog 是一个通过 DialogFragment 实现的底部弹窗布局，并且支持弹出动画，支持任意布局](https://github.com/shaohui10086/BottomDialog)
++ [CommonLibrary主要是自己整理的一些项目开发中常用的工具类、通用UI的集合](https://github.com/smuyyh/CommonLibary)
