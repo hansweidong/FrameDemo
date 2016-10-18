@@ -34,6 +34,7 @@ Gson、FastJson<br/>
  [Android实现通过浏览器点击链接打开本地应用（APP）并拿到浏览器传递的数据](http://blog.csdn.net/jiangwei0910410003/article/details/23940445)<br/>
  [Android入门：隐式Intent](http://blog.csdn.net/xiazdong/article/details/7764865)
 + [借助Stetho在Chrome上调试Android网络&数据库](http://www.jianshu.com/p/03da9f91f41f)
++ [EventBus3.0](http://www.jianshu.com/p/72f475ac3a8d)
 
 
 ##6.常用控件
