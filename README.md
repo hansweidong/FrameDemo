@@ -45,3 +45,4 @@ Gson、FastJson<br/>
 + [android视频录制，模仿微视，支持按下录制、抬起暂停。进度条断点显示](https://github.com/qdrzwd/VideoRecorder)
 + [Android Form EditText](https://github.com/lijiazhicool/android-edittext-validator)可进行电话、邮箱等验证
 + [通用对话框dialogplus](https://github.com/orhanobut/dialogplus)
++ [BottomDialog 是一个通过 DialogFragment 实现的底部弹窗布局，并且支持弹出动画，支持任意布局](https://github.com/shaohui10086/BottomDialog)
